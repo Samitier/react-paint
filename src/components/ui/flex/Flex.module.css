@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.center {
+  align-items: center;
+}
+
+.justifyCenter {
+  justify-content: center;
+}

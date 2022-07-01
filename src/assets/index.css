@@ -1,0 +1,45 @@
+:root {
+  /* Colors */
+  --background-color: #3A445D;
+  --section-background: #F67E7D;
+  --button-background: #FFEECF;
+  --button-background-active: #48A9A6;
+  --text-color: #5E5768;
+  --text-color-active: #FFFFFF;
+
+  /* Shadows */
+  --shadow-inset: inset 0px 0px 2px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0px 0px 4px 3px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+
+  /* Spacing */
+  --spacing-sm: .5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  background-color: var(--background-color);
+}

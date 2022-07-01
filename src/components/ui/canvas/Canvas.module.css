@@ -1,0 +1,10 @@
+.canvas {
+  width: 100%;
+  /* A4 aspect ratio */
+  aspect-ratio: 1.4142 / 1;
+}
+
+.canvasCard {
+  position:relative;
+  z-index: 1;
+}

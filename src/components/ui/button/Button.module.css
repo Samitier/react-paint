@@ -1,0 +1,13 @@
+.button {
+  background: var(--button-background);
+  box-shadow: var(--shadow-sm);
+  border-radius: 3px;
+  color: var(--text-color);
+  padding: var(--spacing-sm);
+  line-height: 0;
+  border: none;
+}
+
+.selected {
+  background: var(--button-background-active);
+}

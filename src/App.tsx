@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css'
+import { LayerBar } from './components/layer-bar/LayerBar';
+import { PaletteBar } from './components/palette-bar/PaletteBar';
+import { ToolBar } from './components/tool-bar/ToolBar';
+import { Canvas } from './components/ui/canvas/Canvas';
+import { Flex } from './components/ui/flex/Flex';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Flex verticalAlign='center'>
+      <PaletteBar />
+      <div className={styles.canvas}>
+        <Canvas />
+        <LayerBar />
+      </div>
+      <ToolBar />
+    </Flex>
   );
 }
-
-export default App;

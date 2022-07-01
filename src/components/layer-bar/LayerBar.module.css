@@ -1,0 +1,9 @@
+.spacer {
+  height: var(--spacing-md);
+}
+
+.layerBar {
+  position: relative;
+  top: calc(var(--spacing-md) * -1);
+  z-index: 0;
+}

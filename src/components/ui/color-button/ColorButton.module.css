@@ -1,0 +1,6 @@
+.colorButton {
+  width: 2rem;
+  height: 2rem;
+  box-shadow: var(--shadow-inset);
+  border: none;
+}

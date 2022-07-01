@@ -1,0 +1,6 @@
+.card {
+  background: var(--section-background);
+  box-shadow: var(--shadow-lg);
+  border-radius: 10px;
+  padding: var(--spacing-md);
+}
