@@ -1,5 +1,5 @@
 import style from './PaletteBar.module.css'
-import { PaintStoreActions, usePaintStore } from "../../store/paint.store"
+import { ToolsStoreActions, useToolsStore } from "../../store/tools.store"
 import { Card } from "../ui/card/Card"
 import { ColorButton } from "../ui/color-button/ColorButton"
 import { Grid } from "../ui/grid/Grid"
@@ -19,15 +19,15 @@ const paletteColors = [
 ]
 
 export const PaletteBar = () => {
-  const [state, dispatch] = usePaintStore()
+  const [state, dispatch] = useToolsStore()
 
   useEffect(() => {
     if (state.selectedColor) return
-    dispatch(PaintStoreActions.selectColor, paletteColors[0])
+    dispatch(ToolsStoreActions.selectColor, paletteColors[0])
   }, [state.selectedColor, dispatch])
 
   function onSelectColor(color: string) {
-    dispatch(PaintStoreActions.selectColor, color)
+    dispatch(ToolsStoreActions.selectColor, color)
   }
 
   return (

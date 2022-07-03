@@ -7,7 +7,7 @@ import { Flex } from './components/ui/flex/Flex';
 
 export const App = () => {
   return (
-    <Flex verticalAlign='center'>
+    <Flex verticalAlign='center' gap='md'>
       <PaletteBar />
       <div className={styles.canvas}>
         <Canvas />

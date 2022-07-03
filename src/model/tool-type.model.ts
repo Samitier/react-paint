@@ -3,6 +3,4 @@ export enum ToolType {
   eraser,
   bucket,
   shape,
-  undo,
-  redo,
 }

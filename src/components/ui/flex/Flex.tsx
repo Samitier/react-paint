@@ -5,6 +5,7 @@ type FlexProps = {
   verticalAlign?: 'center',
   justify?: 'center'
   className?: string,
+  gap?: 'md'
 }
 
 
@@ -18,6 +19,9 @@ export const Flex = (props: FlexProps) => {
   }
   if (props.justify === 'center') {
     classNames.push(styles.justifyCenter)
+  }
+  if (props.gap === 'md') {
+    classNames.push(styles.md)
   }
   // Fixme: we should try to avoid "div soup".
   return (

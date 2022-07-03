@@ -1,6 +1,6 @@
 .flex {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
 .center {
@@ -9,4 +9,8 @@
 
 .justifyCenter {
   justify-content: center;
+}
+
+.md {
+  gap: var(--spacing-md);
 }

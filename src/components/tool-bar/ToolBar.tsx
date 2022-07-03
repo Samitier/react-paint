@@ -1,5 +1,5 @@
 import { ToolType } from "../../model/tool-type.model"
-import { PaintStoreActions, usePaintStore } from "../../store/paint.store"
+import { ToolsStoreActions, useToolsStore } from "../../store/tools.store"
 import { Button } from "../ui/button/Button"
 import { Card } from "../ui/card/Card"
 import { Grid } from "../ui/grid/Grid"
@@ -21,35 +21,45 @@ const tools = [
   {
     icon: IconType.shape,
     tool: ToolType.shape,
-  },
-  {
-    icon: IconType.undo,
-    tool: ToolType.undo, // FIXME: undo is not a tool
-  },
-  {
-    icon: IconType.redo,
-    tool: ToolType.redo // FIXME: undo is not a tool
-  },
+  }
 ]
 
 export const ToolBar = () => {
 
-  const [state, dispatch] = usePaintStore()
+  const [state, dispatch] = useToolsStore()
 
   function onSelectTool(tool:ToolType) {
-    dispatch(PaintStoreActions.selectTool, tool)
+    dispatch(ToolsStoreActions.selectTool, tool)
+  }
+
+  function onUndo() {
+    console.log("TODO")
+  }
+
+  function onRedo() {
+    console.log("TODO")
   }
 
   return (
     <Card>
-      <Grid columns={2}>{
+      <Grid columns={2}>
+        {
         tools.map(t => <Button 
           icon={t.icon}
           key={t.icon}
           onClick={() => onSelectTool(t.tool)}
           isSelected={t.tool === state.selectedTool}/>
-        )
-      }</Grid>
+          )
+        }
+        <Button 
+          icon={IconType.undo}
+          onClick={() => onUndo()}
+        />
+        <Button 
+          icon={IconType.redo}
+          onClick={() => onRedo()}
+        />
+      </Grid>
     </Card>
   )
 }

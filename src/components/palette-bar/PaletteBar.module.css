@@ -1,5 +1,5 @@
 .selectedColor {
   margin-top: var(--spacing-lg);
-  height: 2rem;
+  height: 3rem;
   box-shadow: var(--shadow-inset);
 }

@@ -3,4 +3,9 @@
   height: 2rem;
   box-shadow: var(--shadow-inset);
   border: none;
+  cursor: pointer;
+}
+
+.colorButton:hover {
+  box-shadow: var(--shadow-md);
 }

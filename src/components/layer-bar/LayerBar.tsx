@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import styles from './LayerBar.module.css'
 import { Button } from "../ui/button/Button"
 import { Card } from "../ui/card/Card"
 import { Flex } from "../ui/flex/Flex"
-import { Grid } from "../ui/grid/Grid"
 import { IconType } from "../ui/icon/Icon"
 import { InputRange } from "../ui/input-range/InputRange"
-import { PaintStoreActions, usePaintStore } from "../../store/paint.store"
+import { LayersStoreActions, useLayersStore } from "../../store/layers.store"
 import { Layer } from "../../model/layer"
 
 
 const maxLayersAllowed = 5
 
 export const LayerBar = () => {
-  const [state, dispatch] = usePaintStore()
+  const [state, dispatch] = useLayersStore()
   const [selectedLayer, setSelectedLayer] = useState<Layer>(state.layers[0])
 
   useEffect(() => {
@@ -23,22 +22,22 @@ export const LayerBar = () => {
 
   function onAddLayer() {
     const newLayerId = parseInt(state.layers[state.layers.length - 1].id) + 1
-    dispatch(PaintStoreActions.addLayer, { id: newLayerId.toString(), opacity: 1, paths: []})
+    dispatch(LayersStoreActions.addLayer, { id: newLayerId.toString(), opacity: 1, paths: []})
   }
 
   function onRemoveLayer() {
-    dispatch(PaintStoreActions.removeLayer, selectedLayer)
+    dispatch(LayersStoreActions.removeLayer, selectedLayer)
   }
   
   function onUpdateSelectedLayerOpacity(opacity: number) {
-    dispatch(PaintStoreActions.updateLayer, {...selectedLayer, opacity })
+    dispatch(LayersStoreActions.updateLayer, {...selectedLayer, opacity })
   }
 
   return (
   <Flex className={styles.layerBar} justify="center">
     <Card>
       <div className={styles.spacer}/>
-      <Grid columns={7}>
+      <Flex>
         { state.layers.map(l => 
           <Button
             text={l.id}
@@ -47,9 +46,11 @@ export const LayerBar = () => {
             key={l.id} 
           />
         ) }
+        <Flex className={styles.actions}>
         { state.layers.length < maxLayersAllowed && <Button icon={IconType.add} onClick={onAddLayer} /> }
         { state.layers.length > 1 && <Button icon={IconType.delete} onClick={onRemoveLayer} /> }
-      </Grid>
+        </Flex>
+      </Flex>
     </Card>
     {
       selectedLayer && <Card>
@@ -58,8 +59,8 @@ export const LayerBar = () => {
           min={0}
           max={1}
           step={0.01}
-          iconMin="o"
-          iconMax="O"
+          iconMin={IconType.indicatorSm}
+          iconMax={IconType.indicatorLg}
           value={selectedLayer.opacity} 
           onChange={onUpdateSelectedLayerOpacity}
         />

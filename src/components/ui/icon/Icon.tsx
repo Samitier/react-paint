@@ -10,10 +10,14 @@ export enum IconType {
   shape = 'shape',
   undo = 'undo',
   redo = 'redo',
+  indicatorLg = 'indicator-lg',
+  indicatorMd = 'indicator-md',
+  indicatorSm = 'indicator-sm',
 }
 
 type IconProps = {
   icon: IconType
+  className?: string
 }
 
 export const Icon = (props: IconProps) => {
@@ -28,6 +32,8 @@ export const Icon = (props: IconProps) => {
     fetchImage()
   }, [iconSrc, props.icon])
   
-  if (iconSrc) return <img className={styles.icon} src={iconSrc} alt={props.icon} />
+  if (iconSrc) {
+    return <img className={`${styles.icon} ${props.className ?? ''}`} src={iconSrc} alt={props.icon} />
+  }
   return <React.Fragment />
 }
