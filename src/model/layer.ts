@@ -1,5 +1,5 @@
 export type Layer = {
-  id: string;
-  opacity: number;
-  paths: [];
-};
+  id: string
+  opacity: number
+  paths: []
+}

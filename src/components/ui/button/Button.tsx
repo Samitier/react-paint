@@ -1,5 +1,5 @@
-import { Icon, IconType } from '../icon/Icon'
-import styles from './Button.module.css'
+import { Icon, IconType } from "../icon/Icon"
+import styles from "./Button.module.css"
 
 type ButtonProps = {
   icon?: IconType
@@ -9,16 +9,20 @@ type ButtonProps = {
 }
 
 export const Button = (props: ButtonProps) => {
-  
   // FIXME: accessibility. Missing aria for buttons with icons
   return (
     <button
-      className={`${ styles.button } ${props.isSelected ? styles.selected : ''}`}
-      onClick={ props.onClick }  
+      className={`${styles.button} ${props.isSelected ? styles.selected : ""}`}
+      onClick={props.onClick}
     >
-      {
-        props.icon ? <Icon icon={ props.icon }/> : props.text
-      }
+      {props.icon ? (
+        <Icon
+          className={props.isSelected ? styles.selectedIcon : ""}
+          icon={props.icon}
+        />
+      ) : (
+        props.text
+      )}
     </button>
   )
 }

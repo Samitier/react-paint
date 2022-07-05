@@ -21,3 +21,7 @@
   background: var(--button-background-active);
   color: var(--text-color-active);
 }
+
+.selectedIcon {
+  filter: brightness(100);
+}

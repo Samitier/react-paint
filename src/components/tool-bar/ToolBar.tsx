@@ -21,14 +21,13 @@ const tools = [
   {
     icon: IconType.shape,
     tool: ToolType.shape,
-  }
+  },
 ]
 
 export const ToolBar = () => {
-
   const [state, dispatch] = useToolsStore()
 
-  function onSelectTool(tool:ToolType) {
+  function onSelectTool(tool: ToolType) {
     dispatch(ToolsStoreActions.selectTool, tool)
   }
 
@@ -43,22 +42,16 @@ export const ToolBar = () => {
   return (
     <Card>
       <Grid columns={2}>
-        {
-        tools.map(t => <Button 
-          icon={t.icon}
-          key={t.icon}
-          onClick={() => onSelectTool(t.tool)}
-          isSelected={t.tool === state.selectedTool}/>
-          )
-        }
-        <Button 
-          icon={IconType.undo}
-          onClick={() => onUndo()}
-        />
-        <Button 
-          icon={IconType.redo}
-          onClick={() => onRedo()}
-        />
+        {tools.map((t) => (
+          <Button
+            icon={t.icon}
+            key={t.icon}
+            onClick={() => onSelectTool(t.tool)}
+            isSelected={t.tool === state.selectedTool}
+          />
+        ))}
+        <Button icon={IconType.undo} onClick={() => onUndo()} />
+        <Button icon={IconType.redo} onClick={() => onRedo()} />
       </Grid>
     </Card>
   )

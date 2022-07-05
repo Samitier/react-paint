@@ -1,5 +1,5 @@
-import { initHookStore } from "../hooks/initHooksStore";
-import { Layer } from "../model/layer";
+import { initHookStore } from "../hooks/initHooksStore"
+import { Layer } from "../model/layer"
 
 export enum LayersStoreActions {
   addLayer = "addLayer",
@@ -13,27 +13,27 @@ const layersStore = initHookStore(
       return {
         ...state,
         layers: [...state.layers, { ...layer }],
-      };
+      }
     },
     [LayersStoreActions.updateLayer]: (state, layer: Layer) => {
       return {
         ...state,
         layers: state.layers.map((l) => {
-          if (l.id === layer.id) return { ...layer };
-          return l;
+          if (l.id === layer.id) return { ...layer }
+          return l
         }),
-      };
+      }
     },
     [LayersStoreActions.removeLayer]: (state, layer: Layer) => {
       return {
         ...state,
         layers: state.layers.filter((l) => l.id !== layer.id),
-      };
+      }
     },
   },
   {
     layers: [{ id: "1", opacity: 1, paths: [] }] as Layer[],
   }
-);
+)
 
-export const useLayersStore = layersStore.useStore;
+export const useLayersStore = layersStore.useStore

@@ -1,13 +1,13 @@
-import { Icon, IconType } from '../icon/Icon'
-import styles from './InputRange.module.css'
+import { Icon, IconType } from "../icon/Icon"
+import styles from "./InputRange.module.css"
 
-type InputRangeProps  = {
-  min: number,
-  max: number,
-  step: number,
-  iconMin: IconType,
-  iconMax: IconType,
-  value: number,
+type InputRangeProps = {
+  min: number
+  max: number
+  step: number
+  iconMin: IconType
+  iconMax: IconType
+  value: number
   onChange: (value: number) => void
 }
 

@@ -1,12 +1,14 @@
-import styles from './Card.module.css'
+import styles from "./Card.module.css"
 
-type CardProps =  {
-  children: React.ReactNode,
+type CardProps = {
+  children: React.ReactNode
   className?: string
 }
 
 export const Card = (props: CardProps) => {
   return (
-    <section className={`${ styles.card } ${ props.className ?? ''}`}>{ props.children }</section>
+    <section className={`${styles.card} ${props.className ?? ""}`}>
+      {props.children}
+    </section>
   )
 }

@@ -1,5 +1,5 @@
-import { initHookStore } from "../hooks/initHooksStore";
-import { ToolType } from "../model/tool-type.model";
+import { initHookStore } from "../hooks/initHooksStore"
+import { ToolType } from "../model/tool-type.model"
 
 export enum ToolsStoreActions {
   selectTool = "selectTool",
@@ -12,19 +12,19 @@ const toolsStore = initHookStore(
       return {
         ...state,
         selectedTool,
-      };
+      }
     },
     [ToolsStoreActions.selectColor]: (state, selectedColor: string) => {
       return {
         ...state,
         selectedColor,
-      };
+      }
     },
   },
   {
     selectedTool: ToolType.pencil,
     selectedColor: "",
   }
-);
+)
 
-export const useToolsStore = toolsStore.useStore;
+export const useToolsStore = toolsStore.useStore
