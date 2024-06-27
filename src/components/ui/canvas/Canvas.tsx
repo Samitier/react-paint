@@ -15,8 +15,15 @@ function getBoundedMousePosition(rect: DOMRect, x: number, y: number) {
   }
 }
 
-export const Canvas = () => {
+type Path = { x: number; y: number; strokeColor?: string }
+
+type CanvasProps = {
+  currentStrokeColor: string
+}
+
+export const Canvas = (props: CanvasProps) => {
   const [isDrawing, setIsDrawing] = useState(false)
+  const [paths, setPaths] = useState<Path[]>([])
   const canvas =
     useRef<HTMLCanvasElement>() as MutableRefObject<HTMLCanvasElement>
 
@@ -30,9 +37,29 @@ export const Canvas = () => {
     context.rect(0, 0, width, height)
     context.fillStyle = "#FFF"
     context.fill()
-  }, [canvas])
 
-  function onMouseDown() {
+    context.lineCap = "round"
+    for (let i = 0; i < paths.length; ++i) {
+      if (i === 0) context.moveTo(paths[0].x, paths[0].y)
+      if (paths[i].strokeColor) {
+        context.stroke()
+        context.beginPath()
+        context.moveTo(paths[i].x, paths[i].y)
+        context.lineWidth = 10
+        context.strokeStyle = paths[i].strokeColor ?? ""
+      } else context.lineTo(paths[i].x, paths[i].y)
+    }
+    context.stroke()
+  }, [canvas, paths])
+
+  function onMouseDown(event: any) {
+    const { clientX, clientY } = event as MouseEvent
+    const { x, y } = getBoundedMousePosition(
+      canvas.current.getBoundingClientRect(),
+      clientX,
+      clientY
+    )
+    setPaths([...paths, { x, y, strokeColor: props.currentStrokeColor }])
     setIsDrawing(true)
   }
 
@@ -48,7 +75,7 @@ export const Canvas = () => {
       clientX,
       clientY
     )
-    console.log("DRAW", x, y)
+    setPaths([...paths, { x, y }])
   }
 
   return (

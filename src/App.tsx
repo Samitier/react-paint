@@ -1,8 +1,8 @@
 import styles from "./App.module.css"
+import { AppCanvas } from "./components/app-canvas/app-canvas"
 import { LayerBar } from "./components/layer-bar/LayerBar"
 import { PaletteBar } from "./components/palette-bar/PaletteBar"
 import { ToolBar } from "./components/tool-bar/ToolBar"
-import { Canvas } from "./components/ui/canvas/Canvas"
 import { Flex } from "./components/ui/flex/Flex"
 
 export const App = () => {
@@ -10,7 +10,7 @@ export const App = () => {
     <Flex verticalAlign="center" gap="md">
       <PaletteBar />
       <div className={styles.canvas}>
-        <Canvas />
+        <AppCanvas />
         <LayerBar />
       </div>
       <ToolBar />

@@ -2,7 +2,7 @@
   width: 100%;
   /* A4 aspect ratio */
   aspect-ratio: 1.4142 / 1;
-  cursor: url(../../../assets/icons/indicator-sm.svg) 0 0, auto;
+  cursor: url(../../../assets/icons/indicator-sm.svg) 10 10, auto;
 }
 
 .canvasCard {
